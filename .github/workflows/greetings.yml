@@ -1,0 +1,19 @@
+name: Greetings
+
+on:
+  pull_request_target:
+  issues:
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Greet the user
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "👋 Thank you @${{ github.actor }} for raising an issue! We’re thrilled to have your input as we work to make this project even better. Our team will review it shortly, so stay tuned! Meanwhile, make sure your issue gets noticed, don’t forget to **star the repo 🌟** and follow [@ajaynegi45](https://github.com/ajaynegi45) for even more project insights!"
+          pr-message: "🎉 Thank you @${{ github.actor }} for your contribution! Your pull request has been submitted successfully, and a maintainer will review it soon. We’re excited to have you on board! Remember to **star the repo 🌟** to help us grow, and follow [@ajaynegi45](https://github.com/ajaynegi45) to stay in the loop and increase the visibility of your contributions!"
